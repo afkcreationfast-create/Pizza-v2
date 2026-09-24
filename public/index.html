@@ -1,1 +1,17 @@
-
+<!doctype html>
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#e52529"><title>MA-CANDAR</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<header class="hero"><div class="wrap"><div class="logo">MC</div><small>TAKE OUT AND CHILL</small><h1>MA-CANDAR</h1><p>Ton goût. Ton moment. Ton choix.</p><a href="#menu" class="cta">Voir le catalogue ↓</a></div></header>
+<main class="wrap">
+<section class="intro"><span>BIENVENUE</span><h2>Notre catalogue</h2><p>Découvre les produits, leurs descriptions et leurs prix. Ajoute ce que tu veux au panier puis commande.</p></section>
+<section id="menu"><div class="bar"><div id="cats"></div><button id="cartBtn">🛒 <b id="count">0</b></button></div><div class="products" id="products"></div></section>
+<section class="checkout" id="commande"><div class="bar"><div><span>COMMANDE</span><h2>Finaliser</h2></div></div>
+<div class="tabs"><button class="active" data-mode="delivery">🚚 Livraison</button><button data-mode="table">🍽️ Sur place</button><button data-mode="takeout">🛍️ Emporter</button></div>
+<div class="summary" id="summary"></div><form id="orderForm"><div id="fields"></div><button class="cta full">Commander</button></form><p id="error"></p></section>
+</main>
+<button class="chat-open" id="chatOpen">💬 Besoin d'aide ?</button>
+<div class="chat" id="chat"><div class="chat-head"><b>MA-CANDAR</b><button id="chatClose">✕</button></div><div class="chat-messages" id="chatMessages"><div class="bubble admin">Bonjour 👋 Comment pouvons-nous vous aider ?</div></div><form id="chatForm"><input id="chatName" placeholder="Votre prénom" required><div class="chat-row"><input id="chatInput" placeholder="Votre message..." required><button>➤</button></div></form></div>
+<footer>MA-CANDAR · TAKE OUT AND CHILL · WhatsApp +509 4735 4987</footer>
+<script src="/socket.io/socket.io.js"></script><script src="/client.js"></script>
+</body></html>
