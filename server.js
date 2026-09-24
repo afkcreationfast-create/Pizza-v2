@@ -30,6 +30,9 @@ app.use(express.json({ limit: "1mb" }));
 app.use(express.static(path.join(__dirname, "public")));
 
 async function query(text, params = []) {
+  if (!process.env.DATABASE_URL) {
+    return { rows: [], rowCount: 0 };
+  }
   return pool.query(text, params);
 }
 
@@ -87,7 +90,7 @@ async function initDb() {
   }
 
   const count = await query("SELECT COUNT(*)::int AS n FROM products");
-  if (count.rows[0].n === 0) {
+  if (count.rows && count.rows[0] && count.rows[0].n === 0) {
     const demo = [
       ["Pizza Pepperoni","Pizza généreuse au pepperoni.",850,"Populaire","🍕"],
       ["Burger MA-CANDAR","Burger maison, sauce spéciale.",750,"Populaire","🍔"],
@@ -218,9 +221,10 @@ io.on("connection", socket => {
   });
 });
 
-app.get("*",(req,res)=>{
-  if(req.path.startsWith("/api/")) return res.status(404).end();
-  res.sendFile(path.join(__dirname,"public","index.html"));
+// Modifié ici : remplacement de "*" par "/*"
+app.get("/*", (req, res) => {
+  if (req.path.startsWith("/api/")) return res.status(404).end();
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 initDb().then(()=>server.listen(PORT,()=>console.log(`MA-CANDAR V3 on ${PORT}`)))
