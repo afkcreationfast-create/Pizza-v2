@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MA-CANDAR Admin</title><link rel="stylesheet" href="/admin/admin.css"></head>
+<body>
+<div id="login" class="login"><div class="login-card"><b>MA-CANDAR</b><h1>Administration</h1><p>Connexion sécurisée</p><input id="email" type="email" placeholder="Email"><input id="password" type="password" placeholder="Mot de passe"><button id="loginBtn">Se connecter</button><small id="loginError"></small></div></div>
+<div id="app" class="app hidden"><aside><h2>MA-CANDAR</h2><nav><button data-view="dashboard">📊 Tableau de bord</button><button data-view="products">🍔 Catalogue</button><button data-view="orders">📦 Commandes</button><button data-view="chat">💬 Chat client</button></nav><button id="logout" class="logout">Déconnexion</button></aside><main><header><div><small>ADMINISTRATION</small><h1 id="title">Tableau de bord</h1></div><span id="adminEmail"></span></header><section id="view"></section></main></div>
+<script src="/socket.io/socket.io.js"></script><script src="/admin/admin.js"></script>
+</body></html>
